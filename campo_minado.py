@@ -119,9 +119,12 @@ class Campo:
         for row in range(self.tamanho):
             for col in range(self.tamanho):
                 if (row,col) in self.cavou:
-                    campo_visivel[row][col] = str(self.campo[row][col])
+                    if self.campo[row][col] == 0:
+                        campo_visivel[row][col] = '-' # Quando não houver nenhuma bomba vizinha
+                    else:
+                        campo_visivel[row][col] = str(self.campo[row][col])
                 else:
-                    campo_visivel[row][col] = ' '
+                    campo_visivel[row][col] = '#' # Localização ainda não aberta
         
         # Colocando tudo junto em uma string:
         string_rep = ''
