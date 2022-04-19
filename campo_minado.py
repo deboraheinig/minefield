@@ -22,9 +22,6 @@ class Campo:
     def criar_novo_campo(self):
         
         # Construção de um novo campo baseado no tamanho e nº de bombas
-        
-        # we should construct the list of lists here (or whatever representation you prefer,
-        # but since we have a 2-D board, list of lists is most natural)
 
         # Geração de um novo campo
         campo = [[None for _ in range(self.tamanho)] for _ in range(self.tamanho)]
@@ -111,7 +108,7 @@ class Campo:
                     continue # Se já foi escavado, você não irá cavar novamente o que já cavou. continue:
                 self.cavar(r, c)
 
-        # if our initial dig didn't hit a bomb, we *shouldn't* hit a bomb here
+        # Caso nossa primeira escavada não acertou uma bomba:
         return True
 
     def __str__(self):
