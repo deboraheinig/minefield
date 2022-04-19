@@ -101,7 +101,7 @@ class Campo:
         elif self.campo[row][col] > 0:
             return True
 
-        # self.board[row][col] == 0
+        # self.campo[row][col] == 0
         for r in range(max(0, row-1), min(self.tamanho-1, row+1)+1):
             for c in range(max(0, col-1), min(self.tamanho-1, col+1)+1):
                 if (r, c) in self.cavou:
@@ -164,7 +164,7 @@ class Campo:
 # Inicializando o Campo Minado
 def play(tamanho=10, num_bombas=10):
     # 1º Passo: criação do campo e implantação das bombas
-    board = Campo(tamanho, num_bombas)
+    campo = Campo(tamanho, num_bombas)
 
     # 2º passo: Mostrar o campo pro usuário e perguntar onde ele gostaria de cavar
     # 3º passo: Se a localização for uma bomba, printar mensagem de GAME OVER 
@@ -172,17 +172,17 @@ def play(tamanho=10, num_bombas=10):
     # 5º passo: Repetir o 1º e 2º passo até não existirem mais lugares para cavar
     safe = True 
 
-    while len(board.cavou) < board.tamanho ** 2 - num_bombas:
-        print(board)
+    while len(campo.cavou) < campo.tamanho ** 2 - num_bombas:
+        print(campo)
         # 0,0 ou 0, 0 ou 0,    0
-        user_input = re.split(',(\\s)*', input("Onde você gostaria de cavar? Insira no formato linha,coluna: "))  # Exemplo: '0, 3'
+        user_input = re.split(',(\\s)*', input("Onde você gostaria de cavar? Insira no formato linha,coluna: "))  #Exemplo: '0, 3'
         row, col = int(user_input[0]), int(user_input[-1])
-        if row < 0 or row >= board.tamanho or col < 0 or col >= tamanho:
+        if row < 0 or row >= campo.tamanho or col < 0 or col >= tamanho:
             print("Localização inválida. Tente denovo.")
             continue
 
         # Se a localização for válida, iremos cavar
-        safe = board.cavar(row, col)
+        safe = campo.cavar(row, col)
         if not safe:
             # vc cavou uma bomba!!!!!!
             break # Descanse em paz
@@ -201,8 +201,8 @@ def play(tamanho=10, num_bombas=10):
         print("*===================*")
         
         # Revelando o campo inteiro, após o jogo terminar:
-        board.cavou = [(r,c) for r in range(board.tamanho) for c in range(board.tamanho)]
-        print(board)
+        campo.cavou = [(r,c) for r in range(campo.tamanho) for c in range(campo.tamanho)]
+        print(campo)
         
 # Chamando a função play, para agora realmente jogar o Campo minado:
 if __name__ == '__main__': 
