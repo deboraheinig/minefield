@@ -17,7 +17,7 @@ class Campo:
 
         # Inicialização de um set pra saber quais localizações foram descobertas
         # row = linhas / col = colunas
-        self.cavou = set() # Se cavarmos em 0,0, então self.dug = {(0,0)}
+        self.cavou = set() # Se cavarmos em 0,0, então self.cavou = {(0,0)}
 
     def criar_novo_campo(self):
         
