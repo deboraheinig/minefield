@@ -63,7 +63,9 @@ class Campo:
     def loc_bombas_vizinhas(self, row, col):
         # LOCALIZAÇÃO DAS BOMBAS VIZINHAS
         # vamos percorrer por cada uma das posições vizinhas e somar o número de bombas:
-
+        
+        # row = linha, col = coluna
+       
         # Esquerda de cima da bomba: (row-1, col-1)
         # Meio de cima da bomba: (row-1, col)
         # Direita de cima da bomba: (row-1, col+1)
