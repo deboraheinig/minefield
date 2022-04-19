@@ -12,7 +12,7 @@ class Campo:
 
         # Criando uma função para ajudar nosso Campo
         
-        self.campo = self.criar_novo_campo() # plant the bombs
+        self.campo = self.criar_novo_campo()
         self.aplicar_valores_campo()
 
         # Inicialização de um set pra saber quais localizações foram descobertas
